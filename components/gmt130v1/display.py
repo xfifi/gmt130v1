@@ -44,3 +44,9 @@ CONFIG_SCHEMA = cv.All(
         }
     ).extend(cv.polling_component_schema("5s")),
 )
+
+async def to_code(config):
+    var = cg.new_Pvariable(config[CONF_ID])
+    await cg.register_component(var, config)
+    await display.register_display(var, config)
+    cg.add(var.set_dimensions(config[CONF_WIDTH], config[CONF_HEIGHT]));
