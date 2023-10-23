@@ -15,3 +15,15 @@ from esphome.const import (
 )
 from esphome.const import __version__ as ESPHOME_VERSION
 from . import gmt130v1_ns
+
+AUTO_LOAD = ["psram"]
+DEPENDENCIES = ["esp32"]
+
+CONF_BACKLIGHT = "backlight"
+CONF_LOAD_FONTS = "load_fonts"
+CONF_LOAD_SMOOTH_FONTS = "load_smooth_fonts"
+CONF_ENABLE_LIBRARY_WARNINGS = "enable_library_warnings"
+
+GMT130V1 = gmt130v1_ns.class_(
+    "Gmt130V1", cg.PollingComponent, display.DisplayBuffer
+)
